@@ -1,3 +1,16 @@
+<?php
+
+if (isset($_POST['loginButton'])) {
+    // Login logic
+}
+
+if (isset($_POST['registerButton'])) {
+    // Register logic
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +33,7 @@
                 <input id="loginPassword" type="password" name="loginPassword" placeholder="Enter Password" required>
             </div>
 
-            <button type="submit">Login</button>
+            <button type="submit" name="loginButton">Login</button>
         </form>
 
         <!-- Register -->
@@ -51,7 +64,7 @@
                 <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password" required>
             </div>
 
-            <button type="submit">Register</button>
+            <button type="submit" name="registerButton">Register</button>
         </form>
     </div>
 </body>
