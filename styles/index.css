@@ -1,0 +1,13 @@
+.form-control {
+    margin-bottom: 15px;
+}
+
+.form-control label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-control input {
+    padding: 8px;
+    box-sizing: border-box;
+}
