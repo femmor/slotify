@@ -1,5 +1,6 @@
 <?php
 
+// Account class handles user registration and validation
 class Account
 {
     private $errorArray;
@@ -21,6 +22,7 @@ class Account
      * @return string
      */
 
+    // This function handles the registration logic
     public function register($username, $firstName, $lastName, $email, $confirmEmail, $password, $confirmPassword)
     {
         // Validate inputs
@@ -35,8 +37,17 @@ class Account
             // Save user to database
             return true;
         } else {
-            return implode(", ", $this->errorArray); // Return error messages
+            return false; // Return false if there are errors
         }
+    }
+
+    public function getError($error)
+    {
+        if (! isset($this->errorArray[$error]) || empty($this->errorArray[$error])) {
+            return ""; // No error found
+        }
+
+        return "<span class='errorMessage'>" . $this->errorArray[$error] . "</span>";
     }
 
     /**
@@ -47,7 +58,7 @@ class Account
     private function validateUsername($username)
     {
         if (empty($username) || strlen($username) < 5 || strlen($username) > 25) {
-            $this->errorArray[] = "Username can not be empty and must be between 5 and 25 characters.";
+            $this->errorArray['username'] = "Username can not be empty and must be between 5 and 25 characters.";
 
             return false; // Invalid username
         }
@@ -64,7 +75,7 @@ class Account
     private function validateFirstName($firstName)
     {
         if (empty($firstName) || strlen($firstName) < 2 || strlen($firstName) > 25) {
-            $this->errorArray[] = "First name can not be empty and must be between 2 and 25 characters.";
+            $this->errorArray['firstName'] = "First name can not be empty and must be between 2 and 25 characters.";
 
             return false; // Invalid first name
         }
@@ -80,7 +91,7 @@ class Account
     private function validateLastName($lastName)
     {
         if (empty($lastName) || strlen($lastName) < 2 || strlen($lastName) > 25) {
-            $this->errorArray[] = "Last name can not be empty and must be between 2 and 25 characters.";
+            $this->errorArray['lastName'] = "Last name can not be empty and must be between 2 and 25 characters.";
 
             return false; // Invalid last name
         }
@@ -97,19 +108,19 @@ class Account
     private function validateEmail($email, $confirmEmail)
     {
         if (empty($email) || ! filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $this->errorArray[] = "Email can not be empty and must be a valid email address.";
+            $this->errorArray['email'] = "Email can not be empty and must be a valid email address.";
 
             return false; // Invalid email
         }
 
         if (empty($confirmEmail) || ! filter_var($confirmEmail, FILTER_VALIDATE_EMAIL)) {
-            $this->errorArray[] = "Confirm email can not be empty and must be a valid email address.";
+            $this->errorArray['confirmEmail'] = "Confirm email can not be empty and must be a valid email address.";
 
             return false; // Invalid confirm email
         }
 
         if ($email !== $confirmEmail) {
-            $this->errorArray[] = "Email and confirm email do not match.";
+            $this->errorArray['confirmEmail'] = "Email and confirm email do not match.";
 
             return false; // Emails do not match
         }
@@ -127,19 +138,19 @@ class Account
     private function validatePassword($password, $confirmPassword)
     {
         if ($password !== $confirmPassword) {
-            $this->errorArray[] = "Passwords do not match.";
+            $this->errorArray['confirmPassword'] = "Passwords do not match.";
 
             return false; // Passwords do not match
         }
 
         if (empty($password) || strlen($password) < 6 || strlen($password) > 30) {
-            $this->errorArray[] = "Password can not be empty and must be between 6 and 30 characters long.";
+            $this->errorArray['password'] = "Password can not be empty and must be between 6 and 30 characters long.";
 
             return false; // Invalid password
         }
 
         if (preg_match('/[^a-zA-Z0-9]/', $password)) {
-            $this->errorArray[] = "Password can only contain letters and numbers.";
+            $this->errorArray['password'] = "Password can only contain letters and numbers.";
 
             return false; // Invalid password
         }

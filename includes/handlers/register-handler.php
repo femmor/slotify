@@ -64,10 +64,7 @@ if (isset($_POST['registerButton'])) {
         // Redirect to success page or show success message
         header("Location: index.php");
         exit();
-    } else {
-        // Handle registration failure (e.g., show error messages)
-        $errorMessage = $wasSuccessful; // Assuming $wasSuccessful contains error messages
-        echo "<div class='error'>$errorMessage</div>";
     }
+    // If registration fails, errors will be displayed individually next to each field
 
 }
