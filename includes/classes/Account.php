@@ -6,10 +6,12 @@ include_once("Constants.php");
 class Account
 {
     private $errorArray;
+    private $con;
 
-    public function __construct()
+    public function __construct($con)
     {
         $this->errorArray = [];
+        $this->con = $con;
     }
 
     /**
@@ -37,10 +39,33 @@ class Account
         // Check for errors
         if (empty($this->errorArray)) {
             // Save user to database
-            return true;
+            $this->insertUserDetails($username, $firstName, $lastName, $email, $password);
+
+            return true; // Return true if registration is successful
         } else {
             return false; // Return false if there are errors
         }
+    }
+
+    private function insertUserDetails($username, $firstName, $lastName, $email, $password)
+    {
+        // Encrypt the password
+        $encryptedPassword = md5($password);
+        $profilePic = "assets/images/profile-pics/default.jpg"; // Default profile picture
+        $date = date("Y-m-d"); // Current date
+
+        // Alternative way to hash the password
+        // $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        $result = mysqli_query($this->con, "INSERT INTO users VALUES ('', '$username', '$firstName', '$lastName', '$email', '$encryptedPassword', '$date', '$profilePic')");
+
+        if (! $result) {
+            echo "Error: " . mysqli_error($this->con); // Debugging error
+
+            return false; // Return false if there is an error inserting user details
+        }
+
+        return $result; // Return the result of the query
     }
 
     public function getError($error)

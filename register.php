@@ -4,7 +4,7 @@ include 'includes/config.php';
 
 include 'includes/classes/Account.php';
 
-$account = new Account();
+$account = new Account($con);
 
 // Include the registration handler
 include 'includes/handlers/register-handler.php';
