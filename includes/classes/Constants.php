@@ -14,6 +14,6 @@ class Constants
     public static $passwordError = "Password can not be empty and must be between 6 and 30 characters.";
     public static $confirmPasswordError = "Confirm password can not be empty and must be between 6 and 30 characters.";
     public static $passwordStrengthError = "Password can only contain letters and numbers.";
-    public static $usernameExistsError = "This username already exists.";
+    public static $userNameTakenError = "Username already taken. Please choose a different one.";
     public static $emailExistsError = "This email address is already registered.";
 }

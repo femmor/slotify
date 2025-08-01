@@ -90,7 +90,14 @@ class Account
             return false; // Invalid username
         }
 
-        //TODO: Check if username already exists in the database
+        // Check if username already exists in the database
+        $checkUsernameQuery = mysqli_query($this->con, "SELECT username FROM users WHERE username='$username'");
+        if (mysqli_num_rows($checkUsernameQuery) != 0) {
+            $this->errorArray['username'] = Constants::$userNameTakenError;
+
+            return false; // Username already exists
+        }
+
         return true; // Valid username
     }
 
@@ -153,6 +160,13 @@ class Account
         }
 
         //TODO: Check if email already exists in the database
+        $checkEmailQuery = mysqli_query($this->con, "SELECT email FROM users WHERE email='$email'");
+        if (mysqli_num_rows($checkEmailQuery) != 0) {
+            $this->errorArray['email'] = Constants::$emailExistsError;
+
+            return false; // Email already exists
+        }
+
         return true; // Valid email
     }
 
