@@ -46,6 +46,10 @@ include 'includes/handlers/login-handler.php';
                 <input id="email" type="email" name="email" placeholder="Enter Email" required>
             </div>
             <div class="form-control">
+                <label for="confirmEmail">Confirm Email</label>
+                <input id="confirmEmail" type="email" name="confirmEmail" placeholder="Confirm Email" required>
+            </div>
+            <div class="form-control">
                 <label for="username">Username</label>
                 <input id="username" type="text" name="username" placeholder="Enter Username" required>
             </div>
