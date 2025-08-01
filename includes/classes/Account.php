@@ -57,7 +57,7 @@ class Account
         // Alternative way to hash the password
         // $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $result = mysqli_query($this->con, "INSERT INTO users VALUES ('', '$username', '$firstName', '$lastName', '$email', '$encryptedPassword', '$date', '$profilePic')");
+        $result = mysqli_query($this->con, "INSERT INTO users (username, firstName, lastName, email, password, signUpDate, profilePic) VALUES ('$username', '$firstName', '$lastName', '$email', '$encryptedPassword', '$date', '$profilePic')");
 
         if (! $result) {
             echo "Error: " . mysqli_error($this->con); // Debugging error
