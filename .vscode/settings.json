@@ -1,0 +1,7 @@
+{
+  "php-cs-fixer.executablePath": "${workspaceFolder}/php-cs-fixer.phar",
+  "php-cs-fixer.onsave": true,
+  "php-cs-fixer.rules": "@PSR12",
+  "php-cs-fixer.formatHtml": true,
+  "php-cs-fixer.documentFormattingProvider": true
+}
