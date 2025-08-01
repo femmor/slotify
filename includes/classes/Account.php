@@ -31,12 +31,12 @@ class Account
         $this->validatePassword($password, $confirmPassword);
 
         // Check for errors
-        if (! empty($this->errorArray)) {
+        if (empty($this->errorArray)) {
+            // Save user to database
+            return true;
+        } else {
             return implode(", ", $this->errorArray); // Return error messages
         }
-
-        // Registration logic goes here (e.g., save to database)
-        return "Registration successful!";
     }
 
     /**
@@ -126,22 +126,22 @@ class Account
      */
     private function validatePassword($password, $confirmPassword)
     {
-        if (empty($password) || strlen($password) < 6) {
-            $this->errorArray[] = "Password can not be empty and must be at least 6 characters long.";
-
-            return false; // Invalid password
-        }
-
-        if (empty($confirmPassword) || strlen($confirmPassword) < 6) {
-            $this->errorArray[] = "Confirm password can not be empty and must be at least 6 characters long.";
-
-            return false; // Invalid confirm password
-        }
-
         if ($password !== $confirmPassword) {
             $this->errorArray[] = "Passwords do not match.";
 
             return false; // Passwords do not match
+        }
+
+        if (empty($password) || strlen($password) < 6 || strlen($password) > 30) {
+            $this->errorArray[] = "Password can not be empty and must be between 6 and 30 characters long.";
+
+            return false; // Invalid password
+        }
+
+        if (preg_match('/[^a-zA-Z0-9]/', $password)) {
+            $this->errorArray[] = "Password can only contain letters and numbers.";
+
+            return false; // Invalid password
         }
 
         return true; // Valid password

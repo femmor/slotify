@@ -57,5 +57,17 @@ if (isset($_POST['registerButton'])) {
     $password = sanitizePassword($_POST['password']);
     $confirmPassword = sanitizePassword($_POST['confirmPassword']);
 
-    $account->register($username, $firstName, $lastName, $email, $confirmEmail, $password, $confirmPassword);
+    $wasSuccessful = $account->register($username, $firstName, $lastName, $email, $confirmEmail, $password, $confirmPassword);
+
+    // Check if registration was successful
+    if ($wasSuccessful) {
+        // Redirect to success page or show success message
+        header("Location: index.php");
+        exit();
+    } else {
+        // Handle registration failure (e.g., show error messages)
+        $errorMessage = $wasSuccessful; // Assuming $wasSuccessful contains error messages
+        echo "<div class='error'>$errorMessage</div>";
+    }
+
 }
