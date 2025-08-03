@@ -4,6 +4,7 @@
 // It provides a centralized way to manage error messages for user input validation
 class Constants
 {
+    // Error messages for register input validation
     public static $userNameError = "Username can not be empty and must be between 5 and 25 characters.";
     public static $firstNameError = "First name can not be empty and must be between 2 and 25 characters.";
     public static $lastNameError = "Last name can not be empty and must be between 2 and 25 characters.";
@@ -16,4 +17,7 @@ class Constants
     public static $passwordStrengthError = "Password can only contain letters and numbers.";
     public static $userNameTakenError = "Username already taken. Please choose a different one.";
     public static $emailExistsError = "This email address is already registered.";
+
+    // Error message for login failure
+    public static $loginFailedError = "Invalid username or password.";
 }

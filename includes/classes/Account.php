@@ -1,8 +1,10 @@
 <?php
 
-include_once("Constants.php");
+include "Constants.php";
 
-// Account class handles user registration and validation
+// Account class handles user registration and login logic
+// It validates user input, checks for existing usernames and emails, and manages user sessions
+// This class is used in the registration and login handlers to perform necessary operations
 class Account
 {
     private $errorArray;
@@ -44,6 +46,24 @@ class Account
             return true; // Return true if registration is successful
         } else {
             return false; // Return false if there are errors
+        }
+    }
+
+    // This function handles the login logic
+    public function login($username, $password)
+    {
+        // Encrypt the password
+        $encryptedPassword = md5($password);
+
+        // Check if the user exists in the database
+        $query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$username' AND password='$encryptedPassword'");
+        // check if the have a single row returned
+        if ($query && mysqli_num_rows($query) == 1) {
+            return true; // Return true if login is successful
+        } else {
+            $this->errorArray['login'] = Constants::$loginFailedError; // Set login
+
+            return false; // Return false if login fails
         }
     }
 

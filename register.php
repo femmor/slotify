@@ -36,13 +36,14 @@ function getInputValue($name)
             <!-- Login Form -->
             <form action="register.php" id="loginForm" method="POST">
                 <h2>Login to your account</h2>
+                <?php echo $account->getError('login'); ?>
                 <div class="form-control">
                     <label for="loginUsername">Username</label>
-                    <input id="loginUsername" type="text" name="loginUsername" placeholder="Enter Username" required>
+                    <input id="loginUsername" type="text" name="loginUsername" placeholder="Enter Username" value="<?php echo getInputValue('loginUsername'); ?>" required>
                 </div>
                 <div class="form-control">
                     <label for="loginPassword">Password</label>
-                    <input id="loginPassword" type="password" name="loginPassword" placeholder="Enter Password"
+                    <input id="loginPassword" type="password" name="loginPassword" placeholder="Enter Password" value="<?php echo getInputValue('loginPassword'); ?>"
                         required>
                 </div>
 
