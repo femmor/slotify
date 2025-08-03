@@ -13,6 +13,8 @@ if (isset($_POST['loginButton'])) {
 
     // Check if login was successful
     if ($result) {
+        // Set session variables for the logged-in user
+        $_SESSION['userLoggedIn'] = $username;
         // Redirect to index page or show success message
         header("Location: index.php");
         exit();

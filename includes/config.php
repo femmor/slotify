@@ -3,6 +3,9 @@
 // Start output buffering
 // This allows us to capture output and send it later
 ob_start();
+// Start the session
+// This is necessary for user authentication and session management
+session_start();
 
 // Sets the default timezone
 $timezone = date_default_timezone_set("America/Chicago"); // Set the default timezone

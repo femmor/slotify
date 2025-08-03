@@ -1,3 +1,19 @@
+<?php
+include "includes/config.php";
+
+// TODO: Implement logout functionality
+// session_destroy(); // Destroy the session to log out the user
+
+if (isset($_SESSION['userLoggedIn'])) {
+    $userLoggedIn = $_SESSION['userLoggedIn'];
+
+} else {
+    header("Location: register.php");
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

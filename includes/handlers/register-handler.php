@@ -61,6 +61,8 @@ if (isset($_POST['registerButton'])) {
 
     // Check if registration was successful
     if ($wasSuccessful) {
+        // Set session variables for the logged-in user
+        $_SESSION['userLoggedIn'] = $username;
         // Redirect to success page or show success message
         header("Location: index.php");
         exit();
