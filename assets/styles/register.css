@@ -15,7 +15,7 @@ body {
 
 #background {
     background-color: #000;
-    background-image: url("../images/bg.jpg");
+    background-image: url("../images/register-bg.jpg");
     background-position: center;
     background-size: cover;
     height: 100%;
@@ -27,6 +27,9 @@ body {
     margin: 0 auto;
     position: relative;
     max-width: 1024px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #loginContainer * {
@@ -46,21 +49,47 @@ body {
 
 #loginContainer .form-control {
     margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 #loginContainer .form-control label {
-    display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
 #loginContainer .form-control input {
     padding: 8px;
+    flex: 1;
     box-sizing: border-box;
     width: 100%;
     background: transparent;
-    border: 1px solid #ccc;
-    border-radius: 50px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+}
+
+#loginContainer .form-control input::placeholder {
+    color: #fff;
+    opacity: 0.7;
+}
+
+#loginContainer .form-control label {
+    color: #a0a0a0;
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+#loginContainer button {
+    width: 100%;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+#loginContainer button:hover {
+    background-color: #fff;
+    color: #000;
 }
 
 #loginContainer .errorMessage {
@@ -79,8 +108,43 @@ body {
 
 #loginContainer form {
     background: transparent;
-    border: 1px solid #fff;
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 20px;
+}
+
+#formContainer {
+    width: 480px;
+    margin: 0 auto;
+    padding: 45px;
+    border-right: 1px solid #999;
+}
+
+#loginForm h2,
+#registerForm h2 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#loginContainer .message {
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+
+    #formContainer {
+        width: 100%;
+        padding: 20px;
+        border-right: none;
+    }
+
+    #loginContainer button {
+        width: 100%;
+        margin-top: 10px;
+    }
 }

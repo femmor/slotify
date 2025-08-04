@@ -33,82 +33,84 @@ function getInputValue($name)
 
     <body>
         <div id="background">
-        <div id="loginContainer">
-            <div id="inputContainer">
-            <!-- Login Form -->
-            <form action="register.php" id="loginForm" method="POST">
-                <h2>Login to your account</h2>
-                <?php echo $account->getError('login'); ?>
-                <div class="form-control">
-                    <label for="loginUsername">Username</label>
-                    <input id="loginUsername" type="text" name="loginUsername" placeholder="Enter Username" value="<?php echo getInputValue('loginUsername'); ?>" required>
-                </div>
-                <div class="form-control">
-                    <label for="loginPassword">Password</label>
-                    <input id="loginPassword" type="password" name="loginPassword" placeholder="Enter Password" value="<?php echo getInputValue('loginPassword'); ?>"
-                        required>
-                </div>
+            <div id="loginContainer">
+                <div id="formContainer">
+                    <!-- Login Form -->
+                    <form action="register.php" id="loginForm" method="POST">
+                        <h2>Login to your account</h2>
+                        <?php echo $account->getError('login'); ?>
+                        <div class="form-control">
+                            <label for="loginUsername">Username</label>
+                            <input id="loginUsername" type="text" name="loginUsername" placeholder="Enter Username" value="<?php echo getInputValue('loginUsername'); ?>" required>
+                        </div>
+                        <div class="form-control">
+                            <label for="loginPassword">Password</label>
+                            <input id="loginPassword" type="password" name="loginPassword" placeholder="Enter Password" value="<?php echo getInputValue('loginPassword'); ?>"
+                                required>
+                        </div>
 
-                <button type="submit" name="loginButton">Login</button>
-            </form>
+                        <button type="submit" name="loginButton">Login</button>
 
-            <!-- Register -->
-            <form action="register.php" id="registerForm" method="POST">
-                <h2>Create a new account</h2>
-                <div class="form-control">
-                    <?php echo $account->getError('firstName'); ?>
-                    <label for="firstName">First Name</label>
-                    <input id="firstName" type="text" name="firstName" placeholder="Enter First Name"
-                        value="<?php echo getInputValue('firstName'); ?>"
-                        required>
-                </div>
-                <div class="form-control">
-                    <?php echo $account->getError('lastName'); ?>
-                    <label for="lastName">Last Name</label>
-                    <input id="lastName" type="text" name="lastName" placeholder="Enter Last Name"
-                        value="<?php echo getInputValue('lastName'); ?>"
-                        required>
-                </div>
-                <div class="form-control">
-                    <?php echo $account->getError('email'); ?>
-                    <label for="email">Email</label>
-                    <input id="email" type="email" name="email" placeholder="Enter Email"
-                        value="<?php echo getInputValue('email'); ?>"
-                        required>
-                </div>
-                <div class="form-control">
-                    <?php echo $account->getError('confirmEmail'); ?>
-                    <label for="confirmEmail">Confirm Email</label>
-                    <input id="confirmEmail" type="email" name="confirmEmail" placeholder="Confirm Email"
-                        value="<?php echo getInputValue('confirmEmail'); ?>"
-                        required>
-                </div>
-                <div class="form-control">
-                    <?php echo $account->getError('username'); ?>
-                    <label for="username">Username</label>
-                    <input id="username" type="text" name="username" placeholder="Enter Username"
-                        value="<?php echo getInputValue('username'); ?>"
-                        required>
-                </div>
-                <div class="form-control">
-                    <?php echo $account->getError('password'); ?>
-                    <label for="password">Password</label>
-                    <input id="password" type="password" name="password" placeholder="Enter Password"
-                        value="<?php echo getInputValue('password'); ?>" required>
-                </div>
-                <div class="form-control">
-                    <?php echo $account->getError('confirmPassword'); ?>
-                    <label for="confirmPassword">Confirm Password</label>
-                    <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password"
-                        value="<?php echo getInputValue('confirmPassword'); ?>"
-                        required>
-                </div>
+                        <p class="message">Don't have an account? <a href="#" id="showRegister">Register here</a></p>
+                    </form>
 
-                <button type="submit" name="registerButton">Register</button>
-            </form>
-        </div>
-        </div>
+                    <!-- Register Form-->
+                    <form action="register.php" id="registerForm" method="POST">
+                        <h2>Create a new account</h2>
+                        <div class="form-control">
+                            <?php echo $account->getError('firstName'); ?>
+                            <label for="firstName">First Name</label>
+                            <input id="firstName" type="text" name="firstName" placeholder="Enter First Name"
+                                value="<?php echo getInputValue('firstName'); ?>"
+                                required>
+                        </div>
+                        <div class="form-control">
+                            <?php echo $account->getError('lastName'); ?>
+                            <label for="lastName">Last Name</label>
+                            <input id="lastName" type="text" name="lastName" placeholder="Enter Last Name"
+                                value="<?php echo getInputValue('lastName'); ?>"
+                                required>
+                        </div>
+                        <div class="form-control">
+                            <?php echo $account->getError('email'); ?>
+                            <label for="email">Email</label>
+                            <input id="email" type="email" name="email" placeholder="Enter Email"
+                                value="<?php echo getInputValue('email'); ?>"
+                                required>
+                        </div>
+                        <div class="form-control">
+                            <?php echo $account->getError('confirmEmail'); ?>
+                            <label for="confirmEmail">Confirm Email</label>
+                            <input id="confirmEmail" type="email" name="confirmEmail" placeholder="Confirm Email"
+                                value="<?php echo getInputValue('confirmEmail'); ?>"
+                                required>
+                        </div>
+                        <div class="form-control">
+                            <?php echo $account->getError('username'); ?>
+                            <label for="username">Username</label>
+                            <input id="username" type="text" name="username" placeholder="Enter Username"
+                                value="<?php echo getInputValue('username'); ?>"
+                                required>
+                        </div>
+                        <div class="form-control">
+                            <?php echo $account->getError('password'); ?>
+                            <label for="password">Password</label>
+                            <input id="password" type="password" name="password" placeholder="Enter Password"
+                                value="<?php echo getInputValue('password'); ?>" required>
+                        </div>
+                        <div class="form-control">
+                            <?php echo $account->getError('confirmPassword'); ?>
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password"
+                                value="<?php echo getInputValue('confirmPassword'); ?>"
+                                required>
+                        </div>
+
+                        <button type="submit" name="registerButton">Register</button>
+                        <p class="message">Already have an account? <a href="#" id="showLogin">Login here</a></p>
+                    </form>
+                </div>
+            </div>
         </div>
     </body>
-
 </html>
