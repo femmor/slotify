@@ -27,12 +27,14 @@ function getInputValue($name)
         <link
             href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
             rel="stylesheet">
-        <link rel="stylesheet" href="styles/index.css">
+        <link rel="stylesheet" href="assets/styles/register.css">
         <title>Login or Create account</title>
     </head>
 
     <body>
-        <div id="inputContainer">
+        <div id="background">
+        <div id="loginContainer">
+            <div id="inputContainer">
             <!-- Login Form -->
             <form action="register.php" id="loginForm" method="POST">
                 <h2>Login to your account</h2>
@@ -104,6 +106,8 @@ function getInputValue($name)
 
                 <button type="submit" name="registerButton">Register</button>
             </form>
+        </div>
+        </div>
         </div>
     </body>
 

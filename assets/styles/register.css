@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+#background {
+    background-color: #000;
+    background-image: url("../images/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+#loginContainer {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    max-width: 1024px;
+}
+
+#loginContainer * {
+    font-family: 'Lato', sans-serif;
+    color: #fff;
+    line-height: 1em;
+}
+
+#loginContainer button {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#loginContainer .form-control {
+    margin-bottom: 15px;
+}
+
+#loginContainer .form-control label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#loginContainer .form-control input {
+    padding: 8px;
+    box-sizing: border-box;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+}
+
+#loginContainer .errorMessage {
+    color: #ff0000;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+#loginContainer #inputContainer {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#loginContainer form {
+    background: transparent;
+    border: 1px solid #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
